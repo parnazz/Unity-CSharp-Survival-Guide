@@ -5,7 +5,7 @@ using UnityEngine;
 public class SlowTime : MonoBehaviour
 {
     [SerializeField]
-    private float _timeScale;
+    private float _timeScale = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +16,18 @@ public class SlowTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            Time.timeScale = _timeScale;
+            _timeScale -= 0.01f;
+            if (_timeScale < 0)
+            {
+                _timeScale = 0;
+            }
         }
+        else
+        {
+            _timeScale = 1;
+        }
+        Time.timeScale = _timeScale;
     }
 }
