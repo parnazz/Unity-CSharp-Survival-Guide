@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
         Vector3 directionToLook = _spherePos.position - transform.position;
 
-        transform.rotation = Quaternion.LookRotation(directionToLook);
+        Quaternion lookRot = Quaternion.LookRotation(directionToLook);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, Time.deltaTime);
     }
 }
