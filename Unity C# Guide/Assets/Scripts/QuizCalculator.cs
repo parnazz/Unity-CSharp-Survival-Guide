@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class QuizCalculator : MonoBehaviour
 {
-    /*[SerializeField]
-    private float[] _quizes;
+    [SerializeField]
+    private int[] _quizes;
 
     public float avgVal;
 
@@ -14,16 +14,34 @@ public class QuizCalculator : MonoBehaviour
     {
         for (int i = 0; i < _quizes.Length; i++)
         {
-            _quizes[i] = Random.Range(0f, 10f);
+            _quizes[i] = Random.Range(0, 101);
             avgVal += _quizes[i];
         }
 
         avgVal /= _quizes.Length;
+        avgVal = Mathf.Round(avgVal);
+
+        GradeCalculation();
     }
 
     // Update is called once per frame
-    void Update()
+    void GradeCalculation()
     {
-        
-    }*/
+        if (avgVal >= 90)
+        {
+            Debug.Log("You got A!");
+        }
+        else if (avgVal >= 80 && avgVal < 90)
+        {
+            Debug.Log("You got B");
+        }
+        else if (avgVal >= 70 && avgVal < 80)
+        {
+            Debug.Log("You got C.");
+        }
+        else
+        {
+            Debug.Log("You got F...");
+        }
+    }
 }
