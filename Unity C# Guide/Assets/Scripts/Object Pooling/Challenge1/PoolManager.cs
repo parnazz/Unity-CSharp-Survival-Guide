@@ -33,10 +33,10 @@ public class PoolManager : MonoBehaviour
 
     private void Start()
     {
-        _bulletsPool = GenerateBulletsPool(_lengthOfPool);
+        GenerateBulletsPool(_lengthOfPool);
     }
 
-    public List<GameObject> GenerateBulletsPool(int lengthOfPool)
+    public void GenerateBulletsPool(int lengthOfPool)
     {
         for (int i = 0; i < lengthOfPool; i++)
         {
@@ -45,8 +45,6 @@ public class PoolManager : MonoBehaviour
             bullet.transform.parent = _bulletContainer.transform;
             bullet.SetActive(false);
         }
-
-        return _bulletsPool;
     }
 
     public GameObject RequestBullet()
